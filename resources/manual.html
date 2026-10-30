@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  body { font-family: "Microsoft YaHei", sans-serif; color: #33302b; line-height: 1.75; font-size: 11.5pt; }
+  h1 { font-size: 22pt; margin: 0 0 4px; }
+  h1 .emoji { font-size: 20pt; }
+  .sub { color: #8a847a; font-size: 11pt; margin-bottom: 22px; }
+  h2 { font-size: 15pt; border-left: 5px solid #3c88e8; padding-left: 10px; margin: 26px 0 10px; }
+  .stepnum { display: inline-block; background: #3c88e8; color: #fff; border-radius: 50%; width: 22px; height: 22px; text-align: center; line-height: 22px; font-size: 12pt; margin-right: 8px; }
+  .box { background: #f6f9fe; border: 1px solid #dbe7f7; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+  .warn { background: #fdf0e4; border: 1px solid #f2d9bd; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 10.5pt; }
+  td, th { border: 1px solid #d9e2ee; padding: 7px 10px; text-align: left; }
+  th { background: #eef3fa; }
+  ul { padding-left: 22px; }
+  .small { color: #8a847a; font-size: 9.5pt; }
+</style>
+</head>
+<body>
+<h1><span class="emoji">🎬</span> 现实循环切片机 · 图文说明书</h1>
+<div class="sub">从一段视频里找出最适合无缝循环的片段，做成动态壁纸素材 · v0.1 · 本机生成，无需联网</div>
+
+<h2>它是什么</h2>
+<p>你有没有见过那种"一直动但永远放不完"的动态壁纸：雨点敲窗、咖啡冒热气、树影摇来摇去？它们其实都是<b>一段短短的、能无缝循环的视频</b>。这款小工具帮你从<b>自己拍的视频</b>里把这样的片段找出来：你导入一段视频，它自动挑出最顺滑的 3 段给你选，试看效果，导出就能拿去当动态壁纸素材。</p>
+<div class="box">一句话原理：循环要"看不出接缝"，关键是<b>片段的开头和结尾长得几乎一样</b>。电脑把视频缩成小图一帧一帧地看，专门找"首尾最像、中间又有适度动静"的片段。</div>
+
+<h2>开始前准备</h2>
+<table>
+<tr><th>物品</th><th>说明</th></tr>
+<tr><td>一段视频</td><td>手机拍的就行。最好是<b>5 秒到 60 秒</b>、镜头基本不动、画面里有持续轻微运动的（雨、热气、树影、水波）。超过 60 秒会只分析前 60 秒</td></tr>
+<tr><td>动态壁纸软件</td><td>导出的是 WebM 格式文件，市面主流的动态壁纸软件（Wallpaper Engine、Lively Wallpaper 等）都能直接用</td></tr>
+</table>
+
+<h2>三步使用</h2>
+<h3><span class="stepnum">1</span>导入视频</h3>
+<p>打开软件，点「选择视频文件」。选好后电脑会自动一帧一帧地查看（画面上会显示进度，几十秒的视频几秒钟就看完了）。它看的是缩小的黑白画面，只为找出"首尾最像"的段落，不会动你的原文件。</p>
+<h3><span class="stepnum">2</span>挑一个循环片段</h3>
+<p>电脑会给出 <b>3 张推荐卡片</b>，每张都写了两件事：<b>首尾贴合</b>（百分比越高，循环的接缝越看不出来）和<b>画面变化</b>（太"几乎不动"的片段循环了没意思）。点一张卡片选中；觉得起止位置不合适，就用<b>「开始位置」和「片段长度」</b>两个滑块微调，最长 6 秒、最短 1.5 秒。</p>
+<h3><span class="stepnum">3</span>预览并导出</h3>
+<p>第三步会<b>一直循环播放</b>这段画面——你看到的样子就是导出后的样子。满意就点「导出循环素材（WebM）」，选个保存位置。注意：<b>导出是实时进行的</b>，3 秒的片段就导 3 秒左右，进度条走完就保存好了。</p>
+
+<h2>常见问题</h2>
+<table>
+<tr><th>现象</th><th>原因与办法</th></tr>
+<tr><td>提示"没找到适合循环的片段"</td><td>画面要么几乎不动（死画面），要么变化太剧烈（甩镜头、剪辑跳切）。换一段镜头稳定、有持续轻微运动的视频</td></tr>
+<tr><td>循环处有轻微"重影"</td><td>首尾溶接在运动剧烈的画面上会这样，是溶接本身的原理。挑"首尾贴合"更高、画面变化更平缓的片段会明显减轻</td></tr>
+<tr><td>导出太慢</td><td>导出是实时的（多长导多久），不是卡住了。想要快就选短一点的片段</td></tr>
+<tr><td>壁纸软件不认这个文件</td><td>确认导出的确是 .webm 文件；个别软件需要把 WebM 拖进它的素材库而不是直接双击</td></tr>
+<tr><td>视频很长只分析了一部分</td><td>为了不占满内存，最多分析前 60 秒。想用后面的内容，先把视频剪短再导入</td></tr>
+</table>
+
+<h2>它不是什么</h2>
+<ul>
+<li>它<b>不生成、不脑补</b>任何画面：只从你的视频里挑片段，不会把 5 秒的素材变成 5 分钟。</li>
+<li>导出的素材<b>没有声音</b>——动态壁纸通常不需要，请知悉。</li>
+<li>输出只有 <b>WebM</b> 一种格式；不转 MP4、不转 GIF。</li>
+<li>它不联网：所有分析、导出都在你的电脑上完成，你的视频不会离开这台机器。</li>
+<li>它不替代视频剪辑软件：不能裁画面、调色、加字幕。</li>
+</ul>
+
+<h2>原理（给好奇的人）</h2>
+<p>电脑先把视频按 0.1 秒一步抽成 160×90 的黑白小图序列，然后在一个"滑动的窗口"（1.5～6 秒）上打分：<b>首尾两帧的平均差异</b>（越小，接缝越隐形）乘以<b>窗口内相邻帧的平均变化量</b>（太小＝死画面，太大＝跳变，都不合适）。分数最高的窗口就是推荐片段。导出时把片段末尾 0.3 秒与开头做<b>线性交叉溶解</b>：开头画面逐渐叠加淡入，最后一帧正好是完全的"开头"，接缝就这样藏起来了。重编码用的是浏览器内置的 WebM 编码器（VP9/VP8），所以导出速度等于播放速度。</p>
+<p class="small">现实循环切片机 v0.1 · 本说明书由软件内置生成 · 所有分析与导出在本地完成</p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="56" fill="#10151c"/>
+  <!-- 循环环：顺时针开口在右上，末端带箭头，表示首尾相接 -->
+  <path d="M182.5 108.2 A58 58 0 1 1 138.1 70.9"
+        fill="none" stroke="#7fd3c8" stroke-width="13" stroke-linecap="round"/>
+  <!-- 箭头：与环末端同向，指向右下，说明绕行方向 -->
+  <polygon points="159.8,74.7 132.1,82.0 136.3,58.4" fill="#7fd3c8"/>
+  <!-- 中心播放三角：这是视频工具 -->
+  <polygon points="118,98 118,158 168,128" fill="#ffc861"/>
+</svg>

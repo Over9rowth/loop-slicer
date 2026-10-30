@@ -1,0 +1,15 @@
+=== 反向对照记录 2026-10-29 04:32:57 ===
+
+--- 第 1 轮：motionWeightOf 改成恒返 1（死画面/跳变不再压低）---
+命令: npm test
+结果: tests 15 / pass 11 / fail 4
+变红: not ok 4 motionWeightOf 单测; not ok 8 一半死画面一半运动; not ok 9 无运动序列返回空; not ok 10 纯噪声返回空
+
+--- 第 2 轮：boundarySimOf 改成 boundaryDiff/(boundaryDiff+4)（首尾差异越大贴合度越高）---
+命令: npm test
+结果: tests 15 / pass 11 / fail 4
+变红: not ok 5 boundarySimOf 单测; not ok 6 周期 2.0s 最佳窗口; not ok 7 排序正确; not ok 11 两段场景覆盖
+
+--- 恢复后 ---
+命令: npm test
+结果: tests 15 / pass 15 / fail 0

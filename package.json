@@ -1,0 +1,100 @@
+{
+  "name": "loop-slicer",
+  "productName": "现实循环切片机",
+  "version": "1.0.0",
+  "private": true,
+  "description": "现实循环切片机 — 把任意实拍视频一键切成首尾无缝衔接的无限循环短片、GIF 或动态壁纸",
+  "author": "Over9rowth",
+  "license": "GPL-3.0-only",
+  "main": "dist/main/index.cjs",
+  "scripts": {
+    "build": "tsc --noEmit && node scripts/build.mjs",
+    "dev": "npm run build && electron .",
+    "test": "node --test tests/*.test.cjs",
+    "typecheck": "tsc --noEmit",
+    "smoke": "npm run build && node scripts/smoke.mjs",
+    "manual": "npm run build && electron scripts/make-manual-pdf.mjs",
+    "package": "npm run build && electron-forge package",
+    "make": "npm run build && electron-forge make"
+  },
+  "dependencies": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "7.10.2",
+    "@electron-forge/maker-squirrel": "7.10.2",
+    "@electron-forge/maker-zip": "7.10.2",
+    "@types/node": "24.10.1",
+    "@types/react": "19.1.16",
+    "@types/react-dom": "19.1.9",
+    "electron": "44.9.3",
+    "esbuild": "0.25.11",
+    "typescript": "5.9.3"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asar": false,
+        "name": "LoopSlicer",
+        "executableName": "LoopSlicer",
+        "appBundleId": "local.instruments.loopslicer",
+        "appCopyright": "Copyright (C) 2026 Over9rowth (GPL-3.0)",
+        "appVersion": "0.1.1",
+        "icon": "resources/icon.ico",
+        "win32metadata": {
+          "CompanyName": "Over9rowth",
+          "FileDescription": "现实循环切片机",
+          "ProductName": "现实循环切片机",
+          "LegalCopyright": "Copyright (C) 2026 Over9rowth (GPL-3.0)",
+          "InternalName": "LoopSlicer",
+          "OriginalFilename": "LoopSlicer.exe"
+        },
+        "ignore": [
+          "^/tests",
+          "^/docs",
+          "^/src",
+          "^/scripts",
+          "^/resources",
+          "^/node_modules",
+          "^/out",
+          "^/out-",
+          "^/project_meta",
+          "^/SPEC\\.md$"
+        ]
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "win32"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "LoopSlicer",
+            "title": "现实循环切片机",
+            "setupIcon": "resources/icon.ico"
+          }
+        }
+      ]
+    }
+  },
+  "keywords": [
+    "electron",
+    "typescript",
+    "react",
+    "desktop-app",
+    "windows-app",
+    "offline-first",
+    "gplv3",
+    "video-loop",
+    "seam-carving",
+    "optical-flow",
+    "gif-maker",
+    "live-wallpaper",
+    "video-processing",
+    "creative-tools"
+  ]
+}

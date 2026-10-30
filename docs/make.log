@@ -1,0 +1,33 @@
+# make-offline 打包记录（两次运行，第 2 次产物为交付物）
+
+环境：subst X: => <工作树根>（rcedit 处理不了中文路径，故在 X: 下打包）。
+命令（在 /x/loop-slicer 下执行）：
+  MICROSCOPE_PROJECT_DIR=X:/loop-slicer node scripts/make-offline.mjs make
+
+## 第 1 次运行（2026-10-29 04:45，未经快捷方式修复的构建）
+
+本地镜像 http://127.0.0.1:54351/ → 缓存 zip 158,508,870 字节 sha256=41a1ffa0541cb0f2c9b9fe920dd2cef1793ad0ea2ada1a9582958880f4d1b23c
+[mirror] GET /v44.9.3/electron-v44.9.3-win32-x64.zip
+[mirror] GET /v44.9.3/SHASUMS256.txt
+✔ Making a zip distributable for win32/x64
+✔ Making a squirrel distributable for win32/x64
+› Artifacts available at: X:\loop-slicer\out\make
+（该构建安装后无快捷方式——应用未处理 --squirrel-install 事件，已修复后重打包）
+
+## 第 2 次运行（2026-10-29 04:51，交付构建：+ Squirrel 快捷方式自管理）
+
+✔ Packaging for x64 on win32
+✔ Making a zip distributable for win32/x64
+✔ Making a squirrel distributable for win32/x64
+› Artifacts available at: X:\loop-slicer\out\make
+
+产物与校验值（sha256sum 实测）：
+- out/make/squirrel.windows/x64/LoopSlicer-0.1.0 Setup.exe
+  155,282,944 字节
+  sha256=eda93843befba4b22bb03e84d30cb2b26e3f2b98d3375147442547cc8d2b45b2
+- out/make/squirrel.windows/x64/LoopSlicer-0.1.0-full.nupkg
+  154,552,789 字节
+  sha256=1ee2afa08904c2e4791eb4669d9548c117745b9f111eeca1575fd4956d955563
+- out/make/zip/win32/x64/LoopSlicer-win32-x64-0.1.0.zip
+  159,940,577 字节
+  sha256=089ba64138af2b00abb61cfde3299716cea5b8ade02ee6cddd8abbd790b67fbf

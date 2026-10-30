@@ -1,0 +1,9 @@
+
+[30088:1029/045353.308:INFO:CONSOLE:19225] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools
+You might need to use a local HTTP server (instead of file://): https://react.dev/link/react-devtools-faq font-weight:bold", source: file:///<工作树>/dist/renderer/index.js (19225)
+[smoke] renderer ready, mounted=true engineOk=true
+[smoke] 合成输入: 时长 2.95s, 抽帧 29 帧, 候选 1 个
+[smoke] 最佳循环: 从 0.4s 起 长 2s, 首尾差 0.01, 贴合度 100%
+[smoke] 导出 WebM ok: <临时目录>\loopslicer-smoke-output-1793220839251.webm (11909 字节, video/webm;codecs=vp9, EBML 头校验通过)
+SMOKE PASS
+SMOKE PASS
